@@ -1,0 +1,28 @@
+#!/bin/sh 
+
+echo "would you like to install my nixos (y/n)"
+
+read e
+
+if ["$e" == "y"]; then
+	git clone https://github.com/hexisXz/my-nixos.git 
+	cd my-nixos && cp -r hypr kitty neofetch wallpapers waybar ~/.config
+	
+	echo "moving nix config to /etc/nixos/ would you like to continue (y/n)"
+	read q
+
+	if ["$q" == "y"]; then
+		sudo mv nixos/configuration.nix /etc/nixos/
+	fi
+	
+	if "$q" == "n"]; then
+		exit
+	fi
+fi
+
+if ["$e" == "n"]; then
+	exit
+fi
+
+
+
