@@ -28,8 +28,6 @@
   networking.networkmanager.enable = true;
   networking.interfaces.wlan0.useDHCP = true;
   networking.wireless.interfaces = ["wlan0"];
-  #networking.wireless.networks."grant-gustins_wifi".psk = "whatsthepassword";
-  #networking.networkmanager.unmanaged = [ "inet" ]; 
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -131,9 +129,17 @@
       font-awesome_4 
       pavucontrol
       nerdfonts
+      home-manager
+      dvtm
+      abduco
     #  thunderbird
     ];
   };
+
+
+  # flakes 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];  
+
 
   services.flatpak.enable = true;
 
